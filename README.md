@@ -15,7 +15,7 @@ Welcome to the **Groq AI Interface**, a powerful tool designed to leverage the f
 
 ## 🌟 About the Creator
 
-I'm **Christopher Bradford**, a passionate **cybersecurity engineer and developer** with a strong dedication to building tools that enhance how we interact with technology. My expertise in secure coding and system administration has guided me in crafting this efficient interface for Groq, ensuring that users can deploy powerful AI solutions with ease...well...users who like command line tools, anyway. 
+I'm **Christopher Bradford**, an experienced **cybersecurity engineer and developer** who enjoys building simple tools that enhance how we interact with technology. My expertise in secure coding and system administration has guided me in crafting this efficient interface for Groq, ensuring that users can deploy powerful AI solutions with ease...well...users who like command line tools, anyway. 
 
 ## 🚀 Getting Started
 
@@ -30,27 +30,27 @@ Before you begin, ensure you have the following installed:
 
    Clone the repository:
 
-   ```
-   git clone https://github.com/sunkencity999/groq-ai-interface.git
-   cd groq-ai-interface ```
+
+     git clone https://github.com/sunkencity999/groq-ai-interface.git
+     cd groq-ai-interface
 
     1.Create a virtual environment:
-    ```python3 -m venv venv
-    source venv/bin/activate```
+    python3 -m venv venv
+    source venv/bin/activate
 
 
     2.Install the required packages:
-    ``` pip install -r requirements.txt```
+    pip install -r requirements.txt
 
 
     3.Set your GROQ_API_KEY environment variable:
     Create a .env file in the project's root directory:
-    ```GROQ_API_KEY=your_actual_api_key_here```
+    GROQ_API_KEY=your_actual_api_key_here
 
 ### Running the Interface
 
     To start the interface with the Groq AI, simply run:
-    ``` python3 groq_interface.py ```
+     python3 groq_interface.py
 
 
 ## 💡 Usage
