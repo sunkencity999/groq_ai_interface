@@ -66,7 +66,7 @@ def main():
             continue  # If there's an error, ask for a new question
 
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        print("\\n" + "="*40)
+        print("\n" + "="*40)
         print(f"Groq AI Says:")
 
         # ASCII Box or border for the answer
@@ -74,7 +74,7 @@ def main():
         print(answer)
         print("=" * 40)
 
-        save_choice = input("Would you like to save or copy this output? (save/copy/none): ").strip().lower()
+        save_choice = input("Would you like to save or copy this output? (save/copy/no): ").strip().lower()
         if save_choice == 'save':
             save_answer(answer, timestamp)
         elif save_choice == 'copy':
