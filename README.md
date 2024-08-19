@@ -29,6 +29,7 @@ Before you begin, ensure you have the following installed:
 ### Installation
 
    Clone the repository:
+
     git clone https://github.com/sunkencity999/groq-ai-interface.git
     cd groq-ai-interface
 
