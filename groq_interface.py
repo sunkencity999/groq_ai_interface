@@ -20,7 +20,7 @@ def call_groq_ai(client, question):
     try:
         chat_completion = client.chat.completions.create(
             messages=[{"role": "user", "content": question}],
-            model="llama3-8b-8192",
+            model="llama-3.1-70b-versatile",
         )
         return chat_completion.choices[0].message.content
     except Exception as e:
