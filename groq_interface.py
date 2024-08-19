@@ -5,12 +5,12 @@ import os
 import pyperclip
 import logging
 from groq import Groq
+import datetime  # Added this module for using datetime
 
 load_dotenv()
 
 # Constants
 ANSWERS_DIR = 'answers'
-ANSWER_FILENAME = 'answer.txt'
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -19,19 +19,19 @@ def call_groq_ai(client, question):
     """Calls the Groq AI API and returns the response."""
     try:
         chat_completion = client.chat.completions.create(
-            messages=[{"role": "user", "content": question}],
-            model="llama3-8b-8192",
+                messages=[{"role": "user", "content": question}],
+            model="llama-3.1-70b-versatile",
         )
         return chat_completion.choices[0].message.content
     except Exception as e:
         logging.error(f"Error during API call ({type(e).__name__}): {e}")
         return None
 
-def save_answer(answer):
+def save_answer(answer, timestamp):
     """Saves the given answer to a file."""
     os.makedirs(ANSWERS_DIR, exist_ok=True)  # Create 'answers' directory if it doesn't exist
-    filename = os.path.join(ANSWERS_DIR, ANSWER_FILENAME)
-    with open(filename, 'a') as f:
+    filename = f"{timestamp}.txt"
+    with open(os.path.join(ANSWERS_DIR, filename), 'a') as f:
         f.write(answer + '\\n')  # Ensure newline character is properly formatted
     logging.info(f"Answer saved to {filename}")
 
@@ -52,14 +52,16 @@ def main():
         if answer is None:
             continue  # If there's an error, ask for a new question
 
+        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         print(f"\n Groq AI says: {answer}")
 
         save_choice = input("Would you like to save or copy this output? (save/copy/none): ").strip().lower()
         if save_choice == 'save':
-            save_answer(answer)
+            save_answer(answer, timestamp)
         elif save_choice == 'copy':
-            pyperclip.copy(answer)
-            print("Output copied to clipboard.")
+    
+            print("Here is an easy to copy display of the answer:") 
+            print(answer)
 
         # Ask if the user wants to continue
         continue_choice = input("Would you like to ask another question? (yes/no): ").strip().lower()
