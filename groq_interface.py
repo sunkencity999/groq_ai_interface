@@ -41,7 +41,7 @@ def main():
     print("Welcome to the Groq AI interface!")
 
     while True:
-        question = input("\\nPlease enter your question: ").strip()
+        question = input("\n Please enter your question: ").strip()
 
         if not question:
             print("Question cannot be empty. Please ask something.")
@@ -52,7 +52,7 @@ def main():
         if answer is None:
             continue  # If there's an error, ask for a new question
 
-        print(f"\\nGroq AI says: {answer}")
+        print(f"\n Groq AI says: {answer}")
 
         save_choice = input("Would you like to save or copy this output? (save/copy/none): ").strip().lower()
         if save_choice == 'save':
